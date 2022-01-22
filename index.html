@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel='stylesheet' href="./Assets/css/style.css"/>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">View Highscores</a></li>
+                <li>Time Remaining: <span id='timeLeft'></span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id='intro'>
+            <article id='quiz-home'>
+                <div>
+                    <h1>Welcome to Code Quiz!</h1>
+
+                    <p>
+                        Answer the following questions to add points to your total score!
+                    </p>
+                    <p>
+                        <span class="warning">Be Warned:</span> Answering a question wrong will deduct 10 seconds from your remaining time.
+                    </p>
+                    <button id='start-btn' value="hellooo">Start Game</button>
+
+                </div>
+               
+
+            </article>
+            <article id='game-content'>
+
+            </article>
+
+            <article id="highscore-container">
+                <h1>Your Score: <span id='currUser-score'></span></h1>
+    
+            </article>
+        </section>
+        
+        <!-- <section id='game-content'>
+            
+        </section> -->
+    </main>
+    
+    <script src='./Assets/js/script.js'></script>
+</body>
+</html>
