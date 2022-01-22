@@ -1,0 +1,187 @@
+/* import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+/* set repeated css variables */
+:root {
+    --primary-color: #548CFF;
+    --secondary-color: #7900FF;
+    --tertiary-color: #93FFD8;
+
+}
+
+
+/* reset browser styling and add global font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+/* set header tag font-sizes */
+h1 {
+    font-size: 2.5rem;;
+    border-bottom: solid white 3px;
+}
+
+/* beginning of header */
+/* set bg color of header and set ul to flex => also set position of text for each list item in ul */
+header {
+    background-color: var(--secondary-color);
+    padding: 1em 1.5em;
+    color: white;
+}
+header ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header li {
+    list-style: none;
+    flex: 1 1 20em; 
+    font-size: 1.5rem;   
+}
+
+/* set time remaining text to right of nav bar */
+header li:last-of-type {
+    text-align: right;
+}
+
+/* high scores hyper link set to white */
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+/* UI update to show "View HighScores" cursor hovering  */
+header a:hover {
+    color: var(--tertiary-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* end of footer */
+
+/* general styling of main content container */
+main {
+    background-color: var(--primary-color);
+    
+    height: fit-content;
+}
+
+/* intro section => explains rules of game and allows player to start game */
+#intro  {
+    display: flex;
+    flex-direction: column;
+    /* centered container on page */
+    align-items: center;
+    justify-content: center;
+    border: solid black 3px;
+    padding: 3em 0;
+}
+
+
+
+/* center text and buttons for intro section  */
+#intro  {
+    text-align: center;
+
+    /* set bg-image to chalk board for better UX */
+    background-image: url('https://cdn.pixabay.com/photo/2013/07/12/17/46/chalkboard-152414_960_720.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+    /* position: absolute; */
+    width: 100%;
+}
+
+#intro article {
+    border: solid pink 3px;
+    width: 60vw;
+}
+
+#intro article:first-of-type {
+    z-index: 0;
+}
+#intro article:nth-of-type(2) {
+    z-index: 1;
+}
+
+#intro article >div {
+    padding-right: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;;
+    align-items: center;
+    height: 100%;
+    color: white;
+
+    border: solid pink 3px;
+
+
+}
+
+button {
+    background-color: var(--secondary-color);
+    border-radius: 6px;
+    font-size: 1.5rem;
+    padding: 0.5em 1em;
+    color: white;
+
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+article > div > p {
+    padding: 1.5em 0;
+    font-size: 1.5rem;
+}
+
+main .warning {
+    color: red;
+    font-weight: 700;
+}
+
+#game-content {
+    /* flex-wrap: none; */
+    overflow-x: hidden;;
+    position: absolute;
+    display: flex;
+    /* flex-wrap: wrap; */
+
+}
+
+#game-content .question {
+    color: white;
+    border: solid green 3px;
+    padding: 3em;
+    /* flex: 1 1 50%; */
+
+
+}
+
+.question ol {
+    display: flex;
+    flex: 1 1 100%;
+    width: 60vw;
+
+    padding-left: 10em;
+    /* border: solid pink 3px; */
+    flex-direction: column;
+    row-gap: 1.5em;
+    margin-left: 3em;
+
+    
+}
+
+.question ol button {
+    border: solid pink 3px;
+}
+
+.question .answer-choice {
+    text-align: left;
+    width: fit-content;
+    /* margin: 3em; */
+    /* height: 10%; */
+    background-color: var(--secondary-color);
+}
