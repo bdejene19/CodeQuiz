@@ -347,3 +347,29 @@ main .warning {
     }
 }
 
+@media screen and (max-width: 300px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    article > div > p {
+        font-size: 1.2rem;
+    }
+    #game-content {
+        margin-top: -2em;
+    }
+    #game-content .question {
+        padding: 1.5em 0;
+    }
+
+    .question .answer-choice {
+        font-size: 1.25rem;
+    }
+ 
+    .question h2 {
+        font-size: 1rem;
+    }
+
+    
+}
+
