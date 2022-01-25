@@ -12,7 +12,7 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#">View Highscores</a></li>
+                <button id='viewHighscores' type="button">View Highscores</button>
                 <li>Time Remaining: <span id='timeLeft'></span></li>
             </ul>
         </nav>
@@ -30,7 +30,7 @@
                     <p>
                         <span class="warning">Be Warned:</span> Answering a question wrong will deduct 10 seconds from your remaining time.
                     </p>
-                    <button id='start-btn' value="hellooo">Start Game</button>
+                    <button id='start-btn'>Start Game</button>
 
                 </div>
                
@@ -41,8 +41,20 @@
             </article>
 
             <article id="highscore-container">
-                <h1>Your Score: <span id='currUser-score'></span></h1>
-    
+                <ul id='all-scores'></ul>
+                <div id='yourscore-msg'>
+                    <button type='button' id='go-back'>Go Back</button>
+
+                    <h2>Your Score: <span id='user-score'></span></h2>
+                </div>
+                
+
+                <form id='scoreSubmission'>
+                    <label for='gamer-tag'>Enter gamer tag:</label>
+                    <input id='gamer-tag' type='text' placeholder="E.g. Toast, Syndicate"/>
+                    <button type='submit' id='submit-score'>Submit</button>
+                </form>
+
             </article>
         </section>
         

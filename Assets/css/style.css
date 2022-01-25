@@ -45,16 +45,17 @@ header li {
 /* set time remaining text to right of nav bar */
 header li:last-of-type {
     text-align: right;
+
 }
 
 /* high scores hyper link set to white */
-header a {
-    color: white;
-    text-decoration: none;
-}
 
+header button {
+    border: none;
+
+}
 /* UI update to show "View HighScores" cursor hovering  */
-header a:hover {
+header button:hover {
     color: var(--tertiary-color);
     font-weight: bold;
     text-decoration: underline;
@@ -70,22 +71,14 @@ main {
 }
 
 /* intro section => explains rules of game and allows player to start game */
+/* center text and buttons for intro section  */
 #intro  {
+    text-align: center;
     display: flex;
     flex-direction: column;
     /* centered container on page */
     align-items: center;
     justify-content: center;
-    border: solid black 3px;
-    padding: 3em 0;
-}
-
-
-
-/* center text and buttons for intro section  */
-#intro  {
-    text-align: center;
-
     /* set bg-image to chalk board for better UX */
     background-image: url('https://cdn.pixabay.com/photo/2013/07/12/17/46/chalkboard-152414_960_720.png');
     background-position: center;
@@ -96,12 +89,13 @@ main {
 }
 
 #intro article {
-    border: solid pink 3px;
     width: 60vw;
 }
 
 #intro article:first-of-type {
+    /* border: solid pink 3px; */
     z-index: 0;
+    height: 100%
 }
 #intro article:nth-of-type(2) {
     z-index: 1;
@@ -109,14 +103,15 @@ main {
 
 #intro article >div {
     padding-right: 3em;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;;
     align-items: center;
+    margin-top: -3em;
     height: 100%;
     color: white;
 
-    border: solid pink 3px;
 
 
 }
@@ -130,6 +125,11 @@ button {
 
     opacity: 0.7;
     cursor: pointer;
+}
+header button {
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
 }
 
 article > div > p {
@@ -147,41 +147,203 @@ main .warning {
     overflow-x: hidden;;
     position: absolute;
     display: flex;
+    margin-top: -5em;;
     /* flex-wrap: wrap; */
 
 }
 
 #game-content .question {
     color: white;
-    border: solid green 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
     padding: 3em;
     /* flex: 1 1 50%; */
 
 
 }
 
+.question h2 {
+    width: fit-content;
+    justify-content: center;
+}
 .question ol {
     display: flex;
     flex: 1 1 100%;
     width: 60vw;
-
     padding-left: 10em;
-    /* border: solid pink 3px; */
     flex-direction: column;
+    justify-content: center;
     row-gap: 1.5em;
     margin-left: 3em;
 
     
 }
 
-.question ol button {
-    border: solid pink 3px;
-}
+
 
 .question .answer-choice {
     text-align: left;
     width: fit-content;
-    /* margin: 3em; */
-    /* height: 10%; */
+
     background-color: var(--secondary-color);
 }
+
+#highscore-container  { 
+    display: none;
+    font-size: 2rem;
+    z-index: 2;
+    margin-top: -4em;
+    text-align: center;
+}
+
+#highscore-container input {
+    font-size: 1.5rem;
+    padding: 0.25em;
+    border-radius: 10px;
+}
+#highscore-container #yourscore-msg {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2em;
+}
+#top-scores {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.medalWinner { 
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 5px white;
+    width: 20vw;
+}
+
+#all-scores {
+    display: none;
+    flex-direction: column;
+    row-gap: 1em;
+    /* justify-content: center; */
+    align-items: center;
+    height: 35vh;
+    margin-top: -2em;
+    overflow-y: scroll;
+}
+
+#all-scores li {
+    list-style: none;
+}
+#all-scores li:nth-of-type(1) {
+    background-color: gold;
+}
+
+#all-scores li:nth-of-type(1)::before {
+    content: '🥇'
+}
+#all-scores li:nth-of-type(2) {
+    background-color: #BBC2CC;
+}
+#all-scores li:nth-of-type(2)::before {
+    content: '🥈'
+}
+
+#all-scores li:nth-of-type(3) {
+    background-color: #b08d57;
+}
+
+#all-scores li:nth-of-type(3)::before {
+    content: '🥉'
+}
+
+
+ @media screen and (max-width: 830px) {
+    #intro article {
+        width: 100%;
+    }
+    .question {
+        width: 100%
+    }
+    .question h2 {
+        width: 100%
+    }
+    
+    .medalWinner {
+        width: 60vw;
+    }
+} 
+
+
+
+@media screen and (max-width: 650px) {
+    .question ol {
+        padding-left: 0em;
+        width: 100vw;
+        row-gap: 1em;
+    }
+
+    .question ol button {
+        padding: 0.2em;
+    }
+    #scoreSubmission  { 
+        font-size: 1.35rem;
+        display: flex;
+        row-gap: 1em;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #scoreSubmission input, #scoreSubmission button {
+        font-size: 1.35rem;
+        padding: 0.1em;
+    }
+
+    #intro {
+        align-items: center;
+        justify-content: center;;
+    }
+
+    #game-content {
+        margin-top: -10em;
+    }
+    #intro article >div {
+        padding:0em 0.5em;
+    }
+   
+
+    
+    
+}
+
+@media screen and (max-width: 430px) {
+    #game-content {
+        margin-top: -5em;
+    }
+
+    #yourscore-msg {
+        flex-direction: column;
+    }
+
+    #highscore-container #yourscore-msg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+    #yourscore-msg {
+        flex: 1 1 100%;
+    }
+
+    #go-back {
+        order: 2;
+    }
+
+    .medalWinner {
+        width: 75vw;
+    }
+}
+
