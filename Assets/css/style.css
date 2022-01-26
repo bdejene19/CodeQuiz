@@ -84,192 +84,219 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     height: 90vh;
-    /* position: absolute; */
     width: 100%;
 }
 
+/* standardize article elements inside intro section */
 #intro article {
     width: 60vw;
 }
 
+/* start game article */
 #intro article:first-of-type {
-    /* border: solid pink 3px; */
     z-index: 0;
     height: 100%
 }
+
+/* layer other articles ontop */
 #intro article:nth-of-type(2) {
     z-index: 1;
 }
 
+
+/* style and position start game page */
 #intro article >div {
     padding-right: 3em;
     width: 100%;
+
+    /* layout of start game page */
     display: flex;
     flex-direction: column;
+
+    /* align elements */
     justify-content: center;;
     align-items: center;
+
+    /* raise them up a bit */
     margin-top: -3em;
     height: 100%;
     color: white;
-
-
-
 }
 
+
+/* standardize btn styling */
 button {
     background-color: var(--secondary-color);
     border-radius: 6px;
     font-size: 1.5rem;
     padding: 0.5em 1em;
     color: white;
-
     opacity: 0.7;
     cursor: pointer;
 }
+
+/* override some gloabl button styles for btns in header element */
 header button {
     color: white;
     text-decoration: none;
     background-color: transparent;
 }
 
+/* size and space text on start game page */
 article > div > p {
     padding: 1.5em 0;
     font-size: 1.5rem;
 }
 
+/* style warning text */
 main .warning {
     color: red;
     font-weight: 700;
 }
 
+/* set quiz questions in a row => set to absolute to overlay over chalkboard bg 
+* also hides overflow, preventing user from seeing next question
+*/
 #game-content {
-    /* flex-wrap: none; */
     overflow-x: hidden;;
     position: absolute;
     display: flex;
-    margin-top: -5em;;
-    /* flex-wrap: wrap; */
-
 }
 
+/* styling and positioning of each question in quiz */
 #game-content .question {
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;;
     padding: 3em;
-    /* flex: 1 1 50%; */
-
-
 }
 
+/* styling for question in question container */
 .question h2 {
     width: fit-content;
     justify-content: center;
 }
+
+/* possible answers for question stored in ol => setting possible answers in a column  */
 .question ol {
     display: flex;
-    flex: 1 1 100%;
+    /* set with to 60vw to have container span full width of chalkboard img */
     width: 60vw;
     padding-left: 10em;
     flex-direction: column;
     justify-content: center;
     row-gap: 1.5em;
-    margin-left: 3em;
-
-    
+    margin-left: 3em; 
 }
 
 
-
+/* style buttons for potential answers for quiz questions */
 .question .answer-choice {
     text-align: left;
     width: fit-content;
-
     background-color: var(--secondary-color);
 }
 
+
+/* container for highscores, highscore submission, and user quiz score
+* is initially hidden => js handles manipulation and use
+*/
 #highscore-container  { 
     display: none;
     font-size: 2rem;
     z-index: 2;
+    height: 25vh;
     margin-top: -4em;
     text-align: center;
 }
 
+/* styling for text input for usere score submission */
 #highscore-container input {
     font-size: 1.5rem;
     padding: 0.25em;
     border-radius: 10px;
 }
+
+/* set text input and submission button in a row */
 #highscore-container #yourscore-msg {
     display: flex;
     flex-direction: row;
     column-gap: 2em;
 }
-#top-scores {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1em;
-    align-items: center;
-    font-size: 3rem;
-}
 
+
+
+/* special styling for top 3 scores */
 .medalWinner { 
     border-radius: 10px;
     box-shadow: 0 5px 5px 5px white;
     width: 20vw;
 }
 
+/* set scores saved in local storage into a column display => then adding additional styling */
 #all-scores {
     display: none;
     flex-direction: column;
     row-gap: 1em;
     /* justify-content: center; */
     align-items: center;
-    height: 35vh;
-    margin-top: -2em;
+    height: 25vh;
+    margin-top: 1em;
     overflow-y: scroll;
 }
 
+/* remove bullet from list item list-style */
 #all-scores li {
     list-style: none;
 }
+
+/* set gold, silver and bronze backgrounds for top 3 scores */
 #all-scores li:nth-of-type(1) {
     background-color: gold;
 }
 
-#all-scores li:nth-of-type(1)::before {
-    content: '🥇'
-}
+
 #all-scores li:nth-of-type(2) {
     background-color: #BBC2CC;
 }
-#all-scores li:nth-of-type(2)::before {
-    content: '🥈'
-}
+
 
 #all-scores li:nth-of-type(3) {
     background-color: #b08d57;
+}
+
+/* give medals to top 3 scores */
+#all-scores li:nth-of-type(1)::before {
+    content: '🥇'
+}
+
+#all-scores li:nth-of-type(2)::before {
+    content: '🥈'
 }
 
 #all-scores li:nth-of-type(3)::before {
     content: '🥉'
 }
 
-
- @media screen and (max-width: 830px) {
+/* beginning of media queries  */
+@media screen and (max-width: 830px) {
+    /* increase width of containers located on chalkboard img */
     #intro article {
         width: 100%;
     }
+
+    /* increasing width of question container for spacing on bg image */
     .question {
         width: 100%
     }
+
+    /* increase question title width */
     .question h2 {
         width: 100%
     }
     
+    /* increase medal winner background widths */
     .medalWinner {
         width: 60vw;
     }
@@ -278,15 +305,19 @@ main .warning {
 
 
 @media screen and (max-width: 650px) {
+    /* increase width of answers to container to prevent overlap*/
     .question ol {
         padding-left: 0em;
         width: 100vw;
         row-gap: 1em;
     }
 
+    /* lower padding around answer btns on smaller screens */
     .question ol button {
         padding: 0.2em;
     }
+
+    /* turn user score submission container into column from row */
     #scoreSubmission  { 
         font-size: 1.35rem;
         display: flex;
@@ -295,36 +326,47 @@ main .warning {
         align-items: center;
     }
 
+    /* restyle text input and btn in form container */
     #scoreSubmission input, #scoreSubmission button {
         font-size: 1.35rem;
         padding: 0.1em;
     }
 
+    /* realign items based on new widths */
     #intro {
         align-items: center;
         justify-content: center;;
     }
 
+    /* raise game questions to be centered better */
     #game-content {
         margin-top: -10em;
     }
-    #intro article >div {
-        padding:0em 0.5em;
-    }
-   
 
-    
-    
+    /* lower padding generally at smaller screens */
+    #intro article >div {
+        padding: 0em 0.5em;
+    }
+
+    /* increase highscore container to prevent overflow and make use of chalkboard space */
+    #highscore-container  { 
+        height: 35vh;
+    }    
 }
 
 @media screen and (max-width: 430px) {
+    /* realign game-questions from top of chalkboard at mobile devices */
     #game-content {
         margin-top: -5em;
     }
 
-    #yourscore-msg {
-        flex-direction: column;
+
+    /* increase highscore container to prevent overlap of different containers at mobile */
+    #highscore-container {
+        height: 65vh;
     }
+
+    /* display score in a column, aligned items, and justified content in center */
 
     #highscore-container #yourscore-msg {
         display: flex;
@@ -334,19 +376,25 @@ main .warning {
         text-align: center;
         flex-wrap: wrap;
     }
-    #yourscore-msg {
-        flex: 1 1 100%;
-    }
 
+    /* change order of go-back option and score display => go back comes second now */
     #go-back {
         order: 2;
     }
 
+    /* increase background width of medal winners */
     .medalWinner {
         width: 75vw;
     }
+
+    /* increase all-scores height to prevent overflow into other containers */
+    #all-scores {
+        padding-top: 1em;
+        height: 35vh;
+    }
 }
 
+/* change font-sizes and margins for very small screens */
 @media screen and (max-width: 300px) {
     h1 {
         font-size: 1.75rem;
@@ -365,7 +413,7 @@ main .warning {
     .question .answer-choice {
         font-size: 1.25rem;
     }
- 
+   
     .question h2 {
         width: 100%;
         padding: 0;

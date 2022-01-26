@@ -9,17 +9,20 @@
 
 </head>
 <body>
+    <!-- nav bar for viewing scores and presenting time remaining -->
     <header>
         <nav>
             <ul>
-                <button id='viewHighscores' type="button">View Highscores</button>
+                <button id='viewHighscores' type="button" >View Highscores</button>
                 <li>Time Remaining: <span id='timeLeft'></span></li>
             </ul>
         </nav>
     </header>
 
+    <!-- container home page, questions, and highscores -->
     <main>
         <section id='intro'>
+            <!-- start-game page -->
             <article id='quiz-home'>
                 <div>
                     <h1>Welcome to Code Quiz!</h1>
@@ -33,13 +36,14 @@
                     <button id='start-btn'>Start Game</button>
 
                 </div>
-               
-
             </article>
+
+            <!-- quiz content -->
             <article id='game-content'>
 
             </article>
 
+            <!-- highscores, submitting score, and quiz score container -->
             <article id="highscore-container">
                 <ul id='all-scores'></ul>
                 <div id='yourscore-msg'>
@@ -48,7 +52,7 @@
                     <h2>Your Score: <span id='user-score'></span></h2>
                 </div>
                 
-
+                <!-- form to submit score -->
                 <form id='scoreSubmission'>
                     <label for='gamer-tag'>Enter gamer tag:</label>
                     <input id='gamer-tag' type='text' placeholder="E.g. Toast, Syndicate"/>
@@ -57,10 +61,6 @@
 
             </article>
         </section>
-        
-        <!-- <section id='game-content'>
-            
-        </section> -->
     </main>
     
     <script src='./Assets/js/script.js'></script>
