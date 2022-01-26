@@ -279,6 +279,12 @@ main .warning {
     content: '🥉'
 }
 
+@media screen and (max-width: 1500px) {
+    #highscore-container  { 
+        height: 60vh;
+    }
+}
+
 /* beginning of media queries  */
 @media screen and (max-width: 830px) {
     /* increase width of containers located on chalkboard img */
@@ -350,7 +356,7 @@ main .warning {
 
     /* increase highscore container to prevent overflow and make use of chalkboard space */
     #highscore-container  { 
-        height: 35vh;
+        height: 50vh;
     }    
 }
 
